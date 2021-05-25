@@ -1,16 +1,10 @@
-struct Person {
-    name: String,
-    age: u8
-}
-
-impl ToString for Person {
-    fn to_string(&self) -> String {
-        return format!("My name is {} and I am {}.", self.name, self.age)
-    }
-}
+extern crate rand;
+use rand::Rng;
 
 fn main() {
-    let me =  Person {name: String::from("Pierrick"), age: 21};
+    let random_number = rand::thread_rng().gen_range(1, 11);
+    println!("Random Number: {}", random_number);
 
-    println!("{}", me.to_string());
+    let random_bool = rand::thread_rng().gen_weighted_bool(2);
+    println!("Random Bool: {}", random_bool);
 }
